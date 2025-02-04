@@ -1,0 +1,3247 @@
+<html
+        xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<title>Jira</title>
+<style type="text/css">
+table {
+    mso-displayed-decimal-separator:"\,";
+    mso-displayed-thousand-separator:" ";
+}
+body
+{
+    margin: 0px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    color:black;
+}
+
+</style>
+<META HTTP-EQUIV="Content-Type" Content="application/vnd.ms-excel; charset=UTF-8">
+<!-- JRA-7598 - ensure fields (e.g. description) occupy only one cell - even fields containing newlines. -->
+<!--
+Vertical align all cells to the top, in order to align all issue rows of issuetable to the top,
+since Excel does not use or save the css files it is hardcoded here.
+-->
+<style>
+@page
+{
+mso-page-orientation:landscape;
+margin:.25in .25in .5in .25in;
+mso-header-margin:.5in;
+mso-footer-margin:.25in;
+mso-footer-data:"&R&P of &N";
+mso-horizontal-page-align:center;
+mso-vertical-page-align:center;
+}
+
+td.issuekey,
+td.issuetype,
+td.status {
+    mso-style-parent: "";
+    mso-number-format: \@;
+    text-align: left;
+}
+br
+{
+    mso-data-placement:same-cell;
+}
+
+td
+{
+    vertical-align: top;
+}
+</style>
+
+<!--[if gte mso 9]><xml>
+<x:ExcelWorkbook>
+<x:ExcelWorksheets>
+<x:ExcelWorksheet>
+<x:Name>general_report</x:Name>
+<x:WorksheetOptions>
+<x:Print>
+<x:ValidPrinterInfo/>
+</x:Print>
+</x:WorksheetOptions>
+</x:ExcelWorksheet>
+</x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+
+<table border="1">
+    <tr bgcolor="#205081" height="30">
+        <td colspan="72">
+            <img src="https://ocgaetan.atlassian.net/images/icon-jira-family-logo.png" width="57" height="30" border="0" alt="Jira">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="72">
+            <a href="https://ocgaetan.atlassian.net/issues/?jql=project+%3D+%22P5MUCDT%22+ORDER+BY+created+ASC">Jira</a>
+        </td>
+    </tr>
+    <tr>
+                <td colspan="72">
+            Affichage de <strong>22</strong> ticket(s) à <strong>22/août/24 10:28 PM</strong>.
+        </td>
+    </tr>
+</table>
+
+
+
+
+                                        <table id="issuetable" class="aui " border="1" cellpadding="3" cellspacing="1" width="100%">
+                        <thead>
+        <tr class="rowHeader">
+            
+                                                            <th class="colHeaderLink headerrow-project" data-id="project">
+                                                        Projet
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuekey" data-id="issuekey">
+                                                        Clé
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-summary" data-id="summary">
+                                                        Résumé
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuetype" data-id="issuetype">
+                                                        Type de ticket
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-status" data-id="status">
+                                                        État
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-priority" data-id="priority">
+                                                        Priorité
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolution" data-id="resolution">
+                                                        Résolution
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-assignee" data-id="assignee">
+                                                        Assigné(e)
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-reporter" data-id="reporter">
+                                                        Rapporteur
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-creator" data-id="creator">
+                                                        Créateur
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-created" data-id="created">
+                                                        Création
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-lastViewed" data-id="lastViewed">
+                                                        Dernier affichage
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-updated" data-id="updated">
+                                                        Mise à jour
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolutiondate" data-id="resolutiondate">
+                                                        Résolu
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-versions" data-id="versions">
+                                                        Versions affectées
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-fixVersions" data-id="fixVersions">
+                                                        Versions corrigées
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-components" data-id="components">
+                                                        Composants
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-duedate" data-id="duedate">
+                                                        Date d&#39;échéance
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-votes" data-id="votes">
+                                                        Votes
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-watches" data-id="watches">
+                                                        Observateurs
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-thumbnail" data-id="thumbnail">
+                                                        Images
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeoriginalestimate" data-id="timeoriginalestimate">
+                                                        Estimation originale
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeestimate" data-id="timeestimate">
+                                                        Estimation restante
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timespent" data-id="timespent">
+                                                        Temps consacré
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-workratio" data-id="workratio">
+                                                        Ratio du travail réel comparé à l&#39;estimation
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-subtasks" data-id="subtasks">
+                                                        Sous-tâches
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuelinks" data-id="issuelinks">
+                                                        Tickets liés
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-environment" data-id="environment">
+                                                        Environnement
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-description" data-id="description">
+                                                        Description
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-security" data-id="security">
+                                                        Niveau de sécurité
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-progress" data-id="progress">
+                                                        Progression
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregateprogress" data-id="aggregateprogress">
+                                                        Σ Progrès
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimespent" data-id="aggregatetimespent">
+                                                        Σ Temps consacré
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeestimate" data-id="aggregatetimeestimate">
+                                                        Σ Estimation restante
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeoriginalestimate" data-id="aggregatetimeoriginalestimate">
+                                                        Σ Estimation originale
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-labels" data-id="labels">
+                                                        Étiquettes
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statuscategorychangedate" data-id="statuscategorychangedate">
+                                                        Catégorie d&#39;état modifiée
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statusCategory" data-id="statusCategory">
+                                                        Catégorie d&#39;état
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-parent" data-id="parent">
+                                                        Parent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10009" data-id="customfield_10009">
+                                                        Actual end
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10008" data-id="customfield_10008">
+                                                        Actual start
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10003" data-id="customfield_10003">
+                                                        Approvers
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10007" data-id="customfield_10007">
+                                                        Change reason
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10006" data-id="customfield_10006">
+                                                        Change risk
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10005" data-id="customfield_10005">
+                                                        Change type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10013" data-id="customfield_10013">
+                                                        Epic Color
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10014" data-id="customfield_10014">
+                                                            <span class="deprecated-searcher-icon" title="">
+                                    <div class="deprecated-tooltip table-deprecated-tooltip" role="tooltip" title="">
+                                        <p class="deprecated-tooltip-text table-deprecated-tooltip-text">
+                                            Epic Link sera bientôt remplacé par le parent.
+                                        </p>
+                                    </div>
+                                </span>
+                                                        Epic Link
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10011" data-id="customfield_10011">
+                                                        Epic Name
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10012" data-id="customfield_10012">
+                                                        Epic Status
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10021" data-id="customfield_10021">
+                                                        Flagged
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10004" data-id="customfield_10004">
+                                                        Impact
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10017" data-id="customfield_10017">
+                                                        Issue color
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10026" data-id="customfield_10026">
+                                                        Formulaires verrouillés
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10027" data-id="customfield_10027">
+                                                        Formulaires ouverts
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10002" data-id="customfield_10002">
+                                                        Organizations
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10018" data-id="customfield_10018">
+                                                            <span class="deprecated-searcher-icon" title="">
+                                    <div class="deprecated-tooltip table-deprecated-tooltip" role="tooltip" title="">
+                                        <p class="deprecated-tooltip-text table-deprecated-tooltip-text">
+                                            Parent Link sera bientôt remplacé par le parent.
+                                        </p>
+                                    </div>
+                                </span>
+                                                        Parent Link
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10035" data-id="customfield_10035">
+                                                        Project overview key
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10036" data-id="customfield_10036">
+                                                        Project overview status
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10019" data-id="customfield_10019">
+                                                        Rank
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10010" data-id="customfield_10010">
+                                                        Request Type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10033" data-id="customfield_10033">
+                                                        Sentiment
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10020" data-id="customfield_10020">
+                                                        Sprint
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10015" data-id="customfield_10015">
+                                                        Start date
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10032" data-id="customfield_10032">
+                                                        Story Points
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10016" data-id="customfield_10016">
+                                                        Story point estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10028" data-id="customfield_10028">
+                                                        Formulaires envoyés
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10023" data-id="customfield_10023">
+                                                        Target end
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10022" data-id="customfield_10022">
+                                                        Target start
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10001" data-id="customfield_10001">
+                                                        Team
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10029" data-id="customfield_10029">
+                                                        Nombre total de formulaires
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10024" data-id="customfield_10024">
+                                                        [CHART] Date of First Response
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10000" data-id="customfield_10000">
+                                                        development
+                                                    </th>
+                                                                    </tr>
+    </thead>
+    <tbody>
+                    
+
+                <tr id="issuerow10019" rel="10019" data-issuekey="P5MUCDT-2" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-2" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-2">P5MUCDT-2</a>
+</td>
+                                            <td class="summary"><p>
+                Lancement du site avec un message d&#39;erreur
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 11:33 AM </td>
+                                            <td class="lastViewed"> 22/août/24 10:27 PM </td>
+                                            <td class="updated"> 13/août/24 11:47 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour P5MUCDT-2" href="https://ocgaetan.atlassian.net/secure/attachment/10004/Ticket_console_erreur_accueil.JPG">
+            Ticket_console_erreur_accueil.JPG
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Lancement du conteneur par VSCODE <br/>
+<br/>
+<br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+La page s&#39;affiche<br/>
+<br/>
+<br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+la page s&#39;affiche mais avec devant une fenêtre d&#39;erreur qu’il est possible de fermer en cliquant sur la croix blanche en haut à droite, ce message revient à chaque nouvel onglet ouvert (l&#39;erreur ne revient pas en navigation standard)<br/>
+<br/>
+Des messages d’erreur sont aussi présents dans la console (ceci quel que soit la méthode de lancement du site)<br/>
+<br/>
+<br/>
+<br/>
++*Informations complémentaires*+<br/>
+<br/>
+Si lancement du conteneur par DOCKER =&gt; la page s&#39;affiche normalement sans message d&#39;erreur
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 11:33 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i0007b:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10020" rel="10020" data-issuekey="P5MUCDT-3" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-3" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-3">P5MUCDT-3</a>
+</td>
+                                            <td class="summary"><p>
+                La page d&#39;accueil ne recharge pas en cliquant sur le logo en haut à gauche
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 11:35 AM </td>
+                                            <td class="lastViewed"> 22/août/24 10:19 PM </td>
+                                            <td class="updated"> 13/août/24 11:35 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur le logo &quot;724events&quot; en haut à gauche<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+La page d&#39;accueil se recharge<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+Le lien html change mais la page ne se recharge pas (exemple : le filtre choisi dans &quot;nos réalisations&quot; reste)
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 11:35 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i0007j:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10021" rel="10021" data-issuekey="P5MUCDT-4" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-4" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-4">P5MUCDT-4</a>
+</td>
+                                            <td class="summary"><p>
+                Erreurs liées à la map Google
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Low
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 11:44 AM </td>
+                                            <td class="lastViewed"> 22/août/24 10:20 PM </td>
+                                            <td class="updated"> 22/août/24 1:19 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour P5MUCDT-4" href="https://ocgaetan.atlassian.net/secure/attachment/10031/Ticket-map-reservation.png">
+            Ticket-map-reservation.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur l&#39;image &quot;conférence&quot; du slider<br/>
+<br/>
+ou<br/>
+<br/>
+Cliquer sur l&#39;image &quot;Sneakercraze market&quot; du slider<br/>
+<br/>
+ou<br/>
+<br/>
+Cliquer sur l&#39;image &quot;World economic forum&quot; du slider<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+La map Google est présente<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+La map n’amène pas au bon endroit (adresse à San Francisco au lieu de Paris)<br/>
+<br/>
+Une erreur est visible dans la console<br/>
+<br/>
+<br/>
+<br/>
++*Informations complémentaires*+<br/>
+<br/>
+Cette erreur est visible sur les sections &quot;conférence&quot;, &quot;Sneakercraze market&quot; et &quot;World economic forum&quot;
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 11:44 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i0007r:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10022" rel="10022" data-issuekey="P5MUCDT-5" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-5" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-5">P5MUCDT-5</a>
+</td>
+                                            <td class="summary"><p>
+                Le formulaire de réservation ne fonctionne pas
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 11:53 AM </td>
+                                            <td class="lastViewed"> 22/août/24 10:20 PM </td>
+                                            <td class="updated"> 22/août/24 9:45 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour P5MUCDT-5" href="https://ocgaetan.atlassian.net/secure/attachment/10007/Ticket_reservation_erreur.JPG">
+            Ticket_reservation_erreur.JPG
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur l&#39;image &quot;World economic forum&quot; du slider<br/>
+<br/>
+ Remplir le formulaire de réservation et cliquer sur le bouton &quot;Envoyer&quot;<br/>
+<br/>
+<br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+Le formulaire de réservation est envoyé et un message de succès s&#39;affiche<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+Pas d&#39;&#39;envoi du formulaire ni de message d’erreur<br/>
+<br/>
+Un message d’erreur dans la console est présent =&gt; problème sur la valeur “surname” qui attend un type number et pas un type string<br/>
+<br/>
+<br/>
+<br/>
++*Informations complémentaires*+<br/>
+<br/>
+Ce problème survient aussi pour les sections &quot;conférence&quot; et &quot;Sneakercraze market&quot;
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 11:53 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i0007z:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10023" rel="10023" data-issuekey="P5MUCDT-6" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-6" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-6">P5MUCDT-6</a>
+</td>
+                                            <td class="summary"><p>
+                Erreur dans la section &quot;Nos Services&quot;
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Low
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 11:56 AM </td>
+                                            <td class="lastViewed"> 22/août/24 10:21 PM </td>
+                                            <td class="updated"> 13/août/24 12:11 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour P5MUCDT-6" href="https://ocgaetan.atlassian.net/secure/attachment/10008/Ticket_section_nos_services.JPG">
+            Ticket_section_nos_services.JPG
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur l&#39;item &quot;Nos services&quot; du menu ou scroller jusqu&#39;à cette section<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+Les titres des 3 colonnes sont corrects<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+La colonne “Expérience digital” n’est pas correctement écrite =&gt; il manque le ”é” de “Expérience”
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 11:56 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i00087:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10024" rel="10024" data-issuekey="P5MUCDT-7" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-7" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-7">P5MUCDT-7</a>
+</td>
+                                            <td class="summary"><p>
+                Les filtres de la section &quot;Nos réalisations&quot; ne fonctionnent pas
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 11:58 AM </td>
+                                            <td class="lastViewed"> 22/août/24 10:21 PM </td>
+                                            <td class="updated"> 13/août/24 11:58 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur l&#39;item &quot;Nos réalisations&quot; du menu ou scroller jusqu&#39;à cette section<br/>
+<br/>
+ Cliquer dans la liste de choix et sélectionner une catégorie<br/>
+<br/>
+<br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+Les vignettes affichées sont filtrées en fonction de la catégorie choisie<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+Rien ne se passe
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 11:58 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i0008f:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10025" rel="10025" data-issuekey="P5MUCDT-8" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-8" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-8">P5MUCDT-8</a>
+</td>
+                                            <td class="summary"><p>
+                Pas de message d&#39;erreur dans le formulaire de contact en cas d&#39;information manquante
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 12:00 PM </td>
+                                            <td class="lastViewed"> 22/août/24 10:21 PM </td>
+                                            <td class="updated"> 22/août/24 9:42 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur l&#39;item &quot;Contact&quot; du menu ou scroller jusqu&#39;à cette section<br/>
+<br/>
+Remplir seulement le champ &quot;Nom&quot; et cliquer sur le bouton &quot;Envoyer&quot;<br/>
+<br/>
+ou<br/>
+<br/>
+Remplir seulement le champ &quot;Prénom&quot; et cliquer sur le bouton &quot;Envoyer&quot;<br/>
+<br/>
+ou<br/>
+<br/>
+Remplir seulement le champ &quot;Personnel / Entreprise&quot; et cliquer sur le bouton &quot;Envoyer&quot;<br/>
+<br/>
+ou<br/>
+<br/>
+ Remplir seulement le champ &quot;Email&quot; et cliquer sur le bouton &quot;Envoyer&quot;<br/>
+<br/>
+ou<br/>
+<br/>
+Remplir seulement le champ &quot;Message&quot; et cliquer sur le bouton &quot;Envoyer&quot;<br/>
+<br/>
+<br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+Un message d&#39;erreur s&#39;affiche pour indiquer qu&#39;il manque des informations<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+Aucun message n’apparaît
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 12:00 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i0008n:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10026" rel="10026" data-issuekey="P5MUCDT-9" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-9" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-9">P5MUCDT-9</a>
+</td>
+                                            <td class="summary"><p>
+                La case d&#39;autorisation n&#39;est pas présente dans le formulaire de la section &quot;Contact&#39;&quot;
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Low
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 12:04 PM </td>
+                                            <td class="lastViewed"> 22/août/24 10:22 PM </td>
+                                            <td class="updated"> 13/août/24 12:04 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour P5MUCDT-9" href="https://ocgaetan.atlassian.net/secure/attachment/10009/Ticket_section_contact.JPG">
+            Ticket_section_contact.JPG
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cocher seulement la case d&#39;autorisation et cliquer sur le bouton &quot;Envoyer&quot;<br/>
+<br/>
+<br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+La case d’autorisation est présente<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+Aucune case d’autorisation n’est présente dans le formulaire
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 12:04 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i0008v:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10027" rel="10027" data-issuekey="P5MUCDT-10" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-10" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-10">P5MUCDT-10</a>
+</td>
+                                            <td class="summary"><p>
+                Le formulaire de la section &quot;Contact&quot; ne fonctionne pas
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 12:08 PM </td>
+                                            <td class="lastViewed"> 22/août/24 10:22 PM </td>
+                                            <td class="updated"> 13/août/24 12:08 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour P5MUCDT-10" href="https://ocgaetan.atlassian.net/secure/attachment/10010/Ticket_contact_swagger.JPG">
+            Ticket_contact_swagger.JPG
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur l&#39;item &quot;Contact&quot; du menu ou scroller jusqu&#39;à cette section<br/>
+<br/>
+ Remplir toutes les informations et cliquer sur le bouton &quot;Envoyer&quot;<br/>
+<br/>
+<br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+Le formulaire de contact est envoyé et un message de succès s&#39;affiche<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+Pas d&#39;&#39;envoi du formulaire ni de message<br/>
+<br/>
+<br/>
+<br/>
++*Informations complémentaires*+<br/>
+<br/>
+Swagger renvoie un résultat positif pour l’envoi (code 201)
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 12:08 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i00093:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10028" rel="10028" data-issuekey="P5MUCDT-11" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-11" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-11">P5MUCDT-11</a>
+</td>
+                                            <td class="summary"><p>
+                Adresse mail incorrecte dans le footer
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Low
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 12:10 PM </td>
+                                            <td class="lastViewed"> 22/août/24 10:22 PM </td>
+                                            <td class="updated"> 13/août/24 12:10 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour P5MUCDT-11" href="https://ocgaetan.atlassian.net/secure/attachment/10011/Ticket_mail_footer.JPG">
+            Ticket_mail_footer.JPG
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Scroller jusqu&#39;en bas de page<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+L’adresse mail est correct<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+L’adresse mail est incorrecte
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 12:10 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i0009b:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10029" rel="10029" data-issuekey="P5MUCDT-12" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-12" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-12">P5MUCDT-12</a>
+</td>
+                                            <td class="summary"><p>
+                Les dots #1 et #2 ne sont pas allumés lors du passage de l&#39;image correspondante dans le slider
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Low
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 12:15 PM </td>
+                                            <td class="lastViewed"> 22/août/24 10:23 PM </td>
+                                            <td class="updated"> 13/août/24 12:15 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour P5MUCDT-12" href="https://ocgaetan.atlassian.net/secure/attachment/10012/Ticket_dots.JPG">
+            Ticket_dots.JPG
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Vérifier que les dots s&#39;allument au passage des images<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+Le dot correspondant à l&#39;image visible est allumé<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+Les dots #1 et #2 ne sont pas allumés lors du passage de l&#39;image correspondante
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 12:15 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i0009j:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10030" rel="10030" data-issuekey="P5MUCDT-13" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-13" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-13">P5MUCDT-13</a>
+</td>
+                                            <td class="summary"><p>
+                Les boutons de navigation (Nos services, Nos réalisations, Notre équipe, Contact) fonctionnent uniquement lorsque nous sommes sur la page d&#39;accueil
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 12:19 PM </td>
+                                            <td class="lastViewed"> 22/août/24 10:23 PM </td>
+                                            <td class="updated"> 13/août/24 12:19 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur l&#39;image &quot;conférence&quot; du slider<br/>
+<br/>
+ou<br/>
+<br/>
+Cliquer sur l&#39;image &quot;Sneakercraze market&quot; du slider<br/>
+<br/>
+ou<br/>
+<br/>
+Cliquer sur l&#39;image &quot;World economic forum&quot; du slider<br/>
+<br/>
+ou<br/>
+<br/>
+Cliquer sur une vignette de la section “Nos réalisations”<br/>
+<br/>
+<br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+Il est possible de naviguer sur le site avec les boutons de navigation peu importe où nous nous trouvins<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+Les boutons de navigation (Nos services, Nos réalisations, Notre équipe, Contact) fonctionnent uniquement lorsque nous sommes sur la page d&#39;accueil.<br/>
+<br/>
+Si nous nous trouvons sur une autre page du site, les boutons ne fonctionnent pas
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 12:19 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i0009r:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10031" rel="10031" data-issuekey="P5MUCDT-14" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-14" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-14">P5MUCDT-14</a>
+</td>
+                                            <td class="summary"><p>
+                Un message d&#39;erreur apparaît dans la section &quot;Nos réalisations&quot; lors du premier lancement
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Low
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 12:27 PM </td>
+                                            <td class="lastViewed"> 22/août/24 10:23 PM </td>
+                                            <td class="updated"> 13/août/24 12:27 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour P5MUCDT-14" href="https://ocgaetan.atlassian.net/secure/attachment/10013/Ticket_nos_realisations_erreur.JPG">
+            Ticket_nos_realisations_erreur.JPG
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+Tout le contenu s’affiche<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+Un message d’erreur est visible au 1er lancement de la page.<br/>
+<br/>
+Il disparait au rechargement de la page et lors d&#39;une deuxième ouverture de la page
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 12:27 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i0009z:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10032" rel="10032" data-issuekey="P5MUCDT-15" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-15" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-15">P5MUCDT-15</a>
+</td>
+                                            <td class="summary"><p>
+                Les champs &quot;Email&quot; des formulaires de réservation et de contact ne sont pas formatés correctement
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Low
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 12:32 PM </td>
+                                            <td class="lastViewed"> 22/août/24 10:23 PM </td>
+                                            <td class="updated"> 22/août/24 10:09 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour P5MUCDT-15" href="https://ocgaetan.atlassian.net/secure/attachment/10014/Ticket_champ_email_formulaires.JPG">
+            Ticket_champ_email_formulaires.JPG
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur l&#39;item &quot;Contact&quot; du menu ou scroller jusqu&#39;à cette section<br/>
+<br/>
+Remplir le champ &quot;Email&quot;<br/>
+<br/>
+ou<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur l&#39;image &quot;conférence&quot; du slider<br/>
+<br/>
+Remplir le champ &quot;Email&quot;<br/>
+<br/>
+ou<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur l&#39;image &quot;Sneakercraze market&quot; du slider<br/>
+<br/>
+Remplir le champ &quot;Email&quot;<br/>
+<br/>
+ou<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur l&#39;image &quot;World economic forum&quot; du slider<br/>
+<br/>
+Remplir le champ &quot;Email&quot;<br/>
+<br/>
+<br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+Le champ “Email” est formaté avec un type email<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+Le champ est formaté avec un type text<br/>
+<br/>
+Chaque début de mot se met avec une majuscule automatiquement 
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 12:32 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i000a7:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10033" rel="10033" data-issuekey="P5MUCDT-16" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-16" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-16">P5MUCDT-16</a>
+</td>
+                                            <td class="summary"><p>
+                Les champs &quot;Date&quot; des formulaires de réservation ne semblent pas cohérentes
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Low
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 12:35 PM </td>
+                                            <td class="lastViewed"> 22/août/24 10:23 PM </td>
+                                            <td class="updated"> 22/août/24 10:24 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour P5MUCDT-16" href="https://ocgaetan.atlassian.net/secure/attachment/10015/Ticket_champ_datel_formulaires.JPG">
+            Ticket_champ_datel_formulaires.JPG
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur l&#39;image &quot;conférence&quot; du slider<br/>
+<br/>
+ou<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur l&#39;image &quot;Sneakercraze market&quot; du slider<br/>
+<br/>
+ou<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur l&#39;image &quot;World economic forum&quot; du slider<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+Les champs “Date” sont cohérents<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+Les dates marquées (2027) dans les formulaires ne semblent pas cohérentes
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 12:35 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i000af:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10034" rel="10034" data-issuekey="P5MUCDT-17" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-17" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-17">P5MUCDT-17</a>
+</td>
+                                            <td class="summary"><p>
+                Les champs &quot;Nom&quot; et &quot;Prénom&quot;  peuvent contenir des chiffres et des caractères spéciaux
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Low
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 12:37 PM </td>
+                                            <td class="lastViewed"> 22/août/24 10:24 PM </td>
+                                            <td class="updated"> 22/août/24 9:30 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur l&#39;item &quot;Contact&quot; du menu ou scroller jusqu&#39;à cette section<br/>
+<br/>
+Remplir le champ &quot;Email&quot;<br/>
+<br/>
+ou<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur l&#39;image &quot;conférence&quot; du slider<br/>
+<br/>
+Remplir le champ &quot;Email&quot;<br/>
+<br/>
+ou<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur l&#39;image &quot;Sneakercraze market&quot; du slider<br/>
+<br/>
+Remplir le champ &quot;Email&quot;<br/>
+<br/>
+ou<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur l&#39;image &quot;World economic forum&quot; du slider<br/>
+<br/>
+Remplir le champ &quot;Email&quot;<br/>
+<br/>
+<br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+Le champ “Nom” peut contenir uniquement des lettres (accentuées ou non)<br/>
+<br/>
+<br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+Le champ peut contenir des chiffres
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 12:37 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i000an:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10035" rel="10035" data-issuekey="P5MUCDT-18" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-18" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-18">P5MUCDT-18</a>
+</td>
+                                            <td class="summary"><p>
+                Messages d&#39;erreur lors du clic sur la dernière prestation dans le footer
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 12:45 PM </td>
+                                            <td class="lastViewed"> 22/août/24 10:24 PM </td>
+                                            <td class="updated"> 13/août/24 12:45 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour P5MUCDT-18" href="https://ocgaetan.atlassian.net/secure/attachment/10017/Ticket_derniere_prestation_footer_erreurs.JPG">
+            Ticket_derniere_prestation_footer_erreurs.JPG
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur l&#39;image de la dernière prestation dans le footer<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+Une nouvelle page s’ouvre vers la dernière prestation<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+Deux messages d’erreur apparaissent
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 12:45 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i000av:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10037" rel="10037" data-issuekey="P5MUCDT-20" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-20" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-20">P5MUCDT-20</a>
+</td>
+                                            <td class="summary"><p>
+                Les images du slider ne défilent pas continuellement
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Low
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 12:53 PM </td>
+                                            <td class="lastViewed"> 22/août/24 10:25 PM </td>
+                                            <td class="updated"> 13/août/24 12:53 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour P5MUCDT-20" href="https://ocgaetan.atlassian.net/secure/attachment/10020/Ticket_caroussel_slider.JPG">
+            Ticket_caroussel_slider.JPG
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            h2. Description<br/>
+<br/>
++*Etapes*+<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Vérifier que les 3 images du slider défilent continuellement<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+Les images défilent en boucle<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+Après la 3ème image, une zone blanche apparaît avant de revenir à l&#39;image 1
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 12:53 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i000bb:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10038" rel="10038" data-issuekey="P5MUCDT-21" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-21" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-21">P5MUCDT-21</a>
+</td>
+                                            <td class="summary"><p>
+                Corriger l&#39;orthographe sur tout le site
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Low
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 12:55 PM </td>
+                                            <td class="lastViewed"> 22/août/24 10:25 PM </td>
+                                            <td class="updated"> 13/août/24 1:00 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour P5MUCDT-21" href="https://ocgaetan.atlassian.net/secure/attachment/10022/Ticket_orthographe_footer.JPG">
+            Ticket_orthographe_footer.JPG
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder à toutes les pages du site<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+Orthographe correcte sur tout le site<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+Plusieurs problèmes d’orthographe sur le site<br/>
+<br/>
+<br/>
+<br/>
++*Informations complémentaires*+<br/>
+<br/>
+Les mots à corriger sur surlignés en jaune dans les PJ
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 12:55 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i000bj:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10039" rel="10039" data-issuekey="P5MUCDT-22" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-22" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-22">P5MUCDT-22</a>
+</td>
+                                            <td class="summary"><p>
+                Partie responsive sur tablette
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Low
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 1:03 PM </td>
+                                            <td class="lastViewed"> 22/août/24 10:25 PM </td>
+                                            <td class="updated"> 13/août/24 1:04 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour P5MUCDT-22" href="https://ocgaetan.atlassian.net/secure/attachment/10029/Ticket_responsive_tablette.JPG">
+            Ticket_responsive_tablette.JPG
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder au site via une tablette<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+Le site fonctionne sur tablette<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+Adaptation potentielle possible sur la 3ème colonne du footer pour que le texte n&#39;arrive pas à fleur d&#39;écran<br/>
+<br/>
+ <br/>
+<br/>
++*Informations complémentaires*+<br/>
+<br/>
+Test réalisé sur iPad Pro
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 1:03 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i000br:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10040" rel="10040" data-issuekey="P5MUCDT-23" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-23" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-23">P5MUCDT-23</a>
+</td>
+                                            <td class="summary"><p>
+                Partie responsive sur mobile
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 13/août/24 1:04 PM </td>
+                                            <td class="lastViewed"> 22/août/24 10:25 PM </td>
+                                            <td class="updated"> 13/août/24 1:07 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour P5MUCDT-23" href="https://ocgaetan.atlassian.net/secure/attachment/10030/Ticket_responsive_mobile.JPG">
+            Ticket_responsive_mobile.JPG
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder au site via un mobile<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+Le site fonctionne sur mobile<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+Le site n’est pas adapté pour mobile (voir exemple en PJ)<br/>
+<br/>
+ <br/>
+<br/>
++*Informations complémentaires*+<br/>
+<br/>
+Test réalisé sur iPhone SE
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 1:04 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i000bz:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10041" rel="10041" data-issuekey="P5MUCDT-24" class="issuerow">
+                                            <td class="project">    Projet 5 - Menez une campagne de tests
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="P5MUCDT-24" href="https://ocgaetan.atlassian.net/browse/P5MUCDT-24">P5MUCDT-24</a>
+</td>
+                                            <td class="summary"><p>
+                Pas de message d&#39;erreur dans le formulaire de réservation en cas d&#39;information manquante
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;À faire&lt;/span&gt;">À faire</span>    </td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            Gaëtan Gardié
+    </td>
+                                            <td class="creator">            Gaëtan Gardié
+    </td>
+                                            <td class="created"> 22/août/24 9:41 PM </td>
+                                            <td class="lastViewed"> 22/août/24 10:25 PM </td>
+                                            <td class="updated"> 22/août/24 9:42 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            +*Etapes*+<br/>
+<br/>
+Accéder à la page d&#39;accueil du site<br/>
+<br/>
+Cliquer sur une image du slider<br/>
+<br/>
+Remplir seulement le champ &quot;Nom&quot; et cliquer sur le bouton &quot;Envoyer&quot;<br/>
+<br/>
+ou<br/>
+<br/>
+Remplir seulement le champ &quot;Prénom&quot; et cliquer sur le bouton &quot;Envoyer&quot;<br/>
+<br/>
+ou<br/>
+<br/>
+Remplir seulement le champ &quot;Date&quot; et cliquer sur le bouton &quot;Envoyer&quot;<br/>
+<br/>
+ou<br/>
+<br/>
+ Remplir seulement le champ &quot;Email&quot; et cliquer sur le bouton &quot;Envoyer&quot;<br/>
+<br/>
+<br/>
+<br/>
++*Résultat attendu*+<br/>
+<br/>
+Un message d&#39;erreur s&#39;affiche pour indiquer qu&#39;il manque des informations<br/>
+<br/>
+ <br/>
+<br/>
++*Résultat obtenu*+<br/>
+<br/>
+Aucun message n’apparaît
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 22/août/24 9:41 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10019">      0|i000c7:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+        </tbody>
+    </table>
+    <div class="end-of-stable-message"></div>
+            <table border="1" >
+<tr>
+    <td bgcolor="#dddddd" colspan="72"><font size="1">
+        Généré à Thu Aug 22 20:28:34 UTC 2024 par Gaëtan Gardié avec JIRA 1001.0.0-SNAPSHOT#100262-rev:c076123891a237f43b1d083c7eff35608c543d69.
+    </font></td>
+</tr>
+</table>
+
+</body>
+</html>
